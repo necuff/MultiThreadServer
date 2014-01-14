@@ -1,3 +1,5 @@
+import sun.misc.IOUtils;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -46,8 +48,12 @@ public class ClientThread extends Thread {
         } finally {
             try{
                 in.close();
-                out.close();
             } catch (IOException e){
+                e.printStackTrace();
+            }
+            try{
+                out.close();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
