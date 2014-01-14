@@ -39,14 +39,9 @@ public class ClientThread extends Thread {
         } catch (Exception ex){
                 ex.printStackTrace();
         } finally {
-            try{
-                in.close();
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-            try{
-                out.close();
-            } catch (IOException e) {
+            try {
+               socket.close();
+            }catch (IOException e){
                 e.printStackTrace();
             }
         }
