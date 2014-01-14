@@ -40,15 +40,16 @@ public class ClientThread extends Thread {
                 System.out.println("Ждем следующую строку");
             }
         } catch (EOFException EOFEx){
+            System.out.println("Клиент отключился");
+        } catch (Exception ex){
+                ex.printStackTrace();
+        } finally {
             try{
                 in.close();
                 out.close();
-                System.out.println("Клиент отключился");
-            } catch (IOException ioEx){
-                ioEx.printStackTrace();
+            } catch (IOException e){
+                e.printStackTrace();
             }
-        } catch (Exception ex){
-            ex.printStackTrace();
         }
     }
 }
